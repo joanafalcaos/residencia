@@ -4,12 +4,12 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 
-class LivroDetalhesPage extends StatefulWidget {
+class HaitiDetalhesPage extends StatefulWidget {
   @override
-  _LivroDetalhesPageState createState() => _LivroDetalhesPageState();
+  _HaitiDetalhesPageState createState() => _HaitiDetalhesPageState();
 }
 
-class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
+class _HaitiDetalhesPageState extends State<HaitiDetalhesPage> {
   int _selectedIndex = 1; // Índice da página de Biblioteca
 
   void _onItemTapped(int index) {
@@ -63,12 +63,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/malala.jpg',
+                      'assets/haiti.jpg',
                       height: 200,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Eu Sou Malala',
+                      'O Haiti de Jean',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Malala Yousafzai',
+                      'Cassiana Pizaia e Rosi Vilas Boas',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -90,7 +90,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star_half, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
                         SizedBox(width: 8),
                         Text(
                           '4.0 (100 avaliações)',
@@ -104,7 +104,8 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LivroPage()));
+                              builder: (context) => LivroPage(),
+                            ));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xffffffff),
@@ -133,7 +134,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação.',
+                    'O Haiti de Jean é uma narrativa envolvente que explora a vida, cultura e desafios enfrentados pelo povo haitiano. Através das experiências de Jean, o livro oferece uma visão profunda e emocional sobre a resiliência e a esperança do Haiti.',
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 24),
@@ -145,11 +146,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  _buildReview('José Felipe Silva',
-                      'Um dos melhores livros que já li, leitura envolvente.'),
+                  _buildReview('Maria Fernandes',
+                      'Um livro tocante e cheio de insights sobre a vida no Haiti.'),
                   Divider(),
-                  _buildReview('Mariana Santos Silva',
-                      'Gostei muito da história de Malala, ela é uma mulher inspiradora.'),
+                  _buildReview('José Silva',
+                      'Uma leitura emocionante e educativa. Recomendo a todos.'),
                 ],
               ),
             ),

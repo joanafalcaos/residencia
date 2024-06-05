@@ -3,8 +3,14 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 import 'login_page.dart';
+import 'alterarSenha_page.dart';
+import 'selecionar_imagem_page.dart';
 
 class ConfigPage extends StatefulWidget {
+  final String? imagePath;
+
+  ConfigPage({this.imagePath});
+
   @override
   _ConfigPageState createState() => _ConfigPageState();
 }
@@ -12,6 +18,13 @@ class ConfigPage extends StatefulWidget {
 class _ConfigPageState extends State<ConfigPage> {
   bool recomendacoes = true;
   bool lembreteLeitura = false;
+  String? _imagePath; // Variável para armazenar a imagem de perfil selecionada
+
+  @override
+  void initState() {
+    super.initState();
+    _imagePath = widget.imagePath; // Inicializa a imagem de perfil
+  }
 
   int _selectedIndex = 2; // Índice da página de Perfil
 
@@ -36,7 +49,8 @@ class _ConfigPageState extends State<ConfigPage> {
       case 2:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => PerfilPage()),
+          MaterialPageRoute(
+              builder: (context) => PerfilPage(imagePath: _imagePath)),
         );
         break;
     }
@@ -47,7 +61,6 @@ class _ConfigPageState extends State<ConfigPage> {
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
     );
-    // Aqui você pode adicionar qualquer lógica adicional para finalizar a sessão, como limpar dados do usuário, etc.
   }
 
   void _mostrarDialogoConfirmacao() {
@@ -77,6 +90,21 @@ class _ConfigPageState extends State<ConfigPage> {
     );
   }
 
+  void _alterarFotoPerfil() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SelecionarImagemPage(
+          onImageSelected: (String selectedImage) {
+            setState(() {
+              _imagePath = selectedImage;
+            });
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,14 +123,15 @@ class _ConfigPageState extends State<ConfigPage> {
             ),
             ListTile(
               title: Text('Alterar Foto de Perfil'),
-              onTap: () {
-                // Lógica para alterar foto de perfil
-              },
+              onTap: _alterarFotoPerfil, // Chama a função ao clicar
             ),
             ListTile(
               title: Text('Alterar Senha'),
               onTap: () {
-                // Lógica para alterar senha
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AlterarSenhaPage()),
+                );
               },
             ),
             SizedBox(height: 20),
@@ -133,7 +162,7 @@ class _ConfigPageState extends State<ConfigPage> {
               onPressed: _mostrarDialogoConfirmacao,
               style: ElevatedButton.styleFrom(
                 primary: Colors.orange,
-                onPrimary: Colors.white, // Define a cor do texto para branco
+                onPrimary: Colors.white,
                 minimumSize: Size(double.infinity, 50),
               ),
               child: Text('Finalizar Sessão'),

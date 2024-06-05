@@ -11,17 +11,13 @@ class _CadastroPageState extends State<CadastroPage> {
   final TextEditingController matriculaController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController dataNascimentoController =
-      TextEditingController();
 
   Future<void> _signUp() async {
     final String matricula = matriculaController.text.trim();
     final String senha = senhaController.text.trim();
     final String email = emailController.text.trim();
-    final String dataNascimento = dataNascimentoController.text.trim();
 
-    final ParseUser user = ParseUser(matricula, senha, email)
-      ..set("dataNascimento", dataNascimento); // Define a data de nascimento
+    final ParseUser user = ParseUser(matricula, senha, email);
 
     var response = await user.signUp();
 
@@ -73,9 +69,6 @@ class _CadastroPageState extends State<CadastroPage> {
                 _buildTextField("Senha", senhaController, obscureText: true),
                 SizedBox(height: 20),
                 _buildTextField("Email", emailController),
-                SizedBox(height: 20),
-                _buildTextField("Data de Nascimento",
-                    dataNascimentoController), // Novo campo
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: _signUp,

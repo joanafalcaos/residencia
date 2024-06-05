@@ -4,12 +4,12 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 
-class LivroDetalhesPage extends StatefulWidget {
+class NarizDetalhesPage extends StatefulWidget {
   @override
-  _LivroDetalhesPageState createState() => _LivroDetalhesPageState();
+  _NarizDetalhesPageState createState() => _NarizDetalhesPageState();
 }
 
-class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
+class _NarizDetalhesPageState extends State<NarizDetalhesPage> {
   int _selectedIndex = 1; // Índice da página de Biblioteca
 
   void _onItemTapped(int index) {
@@ -63,12 +63,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/malala.jpg',
+                      'assets/narizdevidro.jpg',
                       height: 200,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Eu Sou Malala',
+                      'Nariz de Vidro',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Malala Yousafzai',
+                      'Mario Quintana',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -89,11 +89,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star_half, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
                         SizedBox(width: 8),
                         Text(
-                          '4.0 (100 avaliações)',
+                          '3.0 (50 avaliações)',
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -104,7 +104,8 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LivroPage()));
+                              builder: (context) => LivroPage(),
+                            ));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xffffffff),
@@ -133,7 +134,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação.',
+                    'Nariz de Vidro é uma obra clássica que explora os limites da percepção humana. O livro conta a história de um homem comum que, após um acidente, começa a enxergar o mundo de uma maneira totalmente nova. Uma leitura que desafia a mente e toca o coração.',
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 24),
@@ -145,11 +146,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  _buildReview('José Felipe Silva',
-                      'Um dos melhores livros que já li, leitura envolvente.'),
+                  _buildReview('Ana Silva',
+                      'Uma história envolvente que me fez refletir.'),
                   Divider(),
-                  _buildReview('Mariana Santos Silva',
-                      'Gostei muito da história de Malala, ela é uma mulher inspiradora.'),
+                  _buildReview(
+                      'Pedro Santos', 'Interessante, porém um pouco confuso.'),
                 ],
               ),
             ),

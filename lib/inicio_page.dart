@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pnldon/haitiDetalhes_page.dart';
+import 'package:pnldon/tinhaDetalhes_page.dart';
 import 'biblioteca_page.dart';
 import 'livro_page.dart';
 import 'perfil_page.dart';
+import 'megeraDetalhes_page.dart';
+import 'nasciDetalhes_page.dart';
+import 'livroDetalhes_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,10 +32,10 @@ class InicioPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Inicio'),
-        backgroundColor: Color(0xFFFFA500), // Cor laranja
+        backgroundColor: Color(0xFFFFA500),
       ),
       body: Container(
-        color: Color(0xFFFAFAFA), // Cor de fundo #FAFAFA
+        color: Color(0xFFFAFAFA),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -42,11 +47,11 @@ class InicioPage extends StatelessWidget {
               SizedBox(height: 24),
               _buildSectionHeader("Para Você"),
               SizedBox(height: 16),
-              _buildForYouCarousel(), // Carrossel de 3 fotos
+              _buildForYouCarousel(context),
               SizedBox(height: 32),
-              _buildSectionHeader("Top 10"),
+              _buildSectionHeader("Top 3"),
               SizedBox(height: 16),
-              _buildTop10Books(),
+              _buildTop10Books(context),
               SizedBox(height: 32),
             ],
           ),
@@ -173,40 +178,68 @@ class InicioPage extends StatelessWidget {
     );
   }
 
-  Widget _buildForYouCarousel() {
+  Widget _buildForYouCarousel(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: List.generate(3, (index) {
+        children: List.generate(4, (index) {
           String imageName;
           if (index == 0) {
             imageName = 'nasci.jpg';
           } else if (index == 1) {
             imageName = 'megera.jpg';
-          } else {
+          } else if (index == 2) {
             imageName = 'tinha.jpg';
+          } else {
+            imageName = 'haiti.jpg';
           }
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            height: 150, // Altura da imagem
-            width: 100, // Largura da imagem
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: Offset(0, 3),
+          return GestureDetector(
+            onTap: () {
+              if (imageName == 'megera.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MegeraDetalhesPage()),
+                );
+              } else if (imageName == 'nasci.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NasciDetalhesPage()),
+                );
+              } else if (imageName == 'tinha.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TinhaDetalhesPage()),
+                );
+              } else if (imageName == 'haiti.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HaitiDetalhesPage()),
+                );
+              }
+              ;
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+              height: 150, // Altura da imagem
+              width: 100, // Largura da imagem
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/$imageName',
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                'assets/$imageName',
-                fit: BoxFit.cover,
               ),
             ),
           );
@@ -215,7 +248,7 @@ class InicioPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTop10Books() {
+  Widget _buildTop10Books(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
@@ -224,31 +257,51 @@ class InicioPage extends StatelessWidget {
           if (index == 0) {
             imageName = 'megera.jpg';
           } else if (index == 1) {
-            imageName = 'dezmil.jpg';
+            imageName = 'nasci.jpg';
           } else {
             imageName = 'malala.jpg';
           }
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            height: 150,
-            width: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: Offset(0, 3),
+          return GestureDetector(
+            onTap: () {
+              if (imageName == 'megera.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MegeraDetalhesPage()),
+                );
+              } else if (imageName == 'nasci.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NasciDetalhesPage()),
+                );
+              } else if (imageName == 'malala.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LivroDetalhesPage()),
+                );
+              }
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+              height: 150,
+              width: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/$imageName',
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                'assets/$imageName',
-                fit: BoxFit.cover,
               ),
             ),
           );

@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
-import 'inicio_page.dart'; // Importe o arquivo inicio_page.dart
-import 'biblioteca_page.dart'; // Importe o arquivo biblioteca_page.dart
-import 'config_page.dart'; // Importe o arquivo config_page.dart
+import 'inicio_page.dart';
+import 'biblioteca_page.dart';
+import 'config_page.dart';
+import 'livro_page.dart';
 
 class PerfilPage extends StatefulWidget {
+  final String? imagePath;
+
+  PerfilPage({this.imagePath});
+
   @override
   _PerfilPageState createState() => _PerfilPageState();
 }
 
 class _PerfilPageState extends State<PerfilPage> {
   int _selectedIndex = 2; // Índice da página de Perfil
+  String _imagePath = 'assets/5.png'; // Caminho padrão da imagem
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.imagePath != null) {
+      _imagePath = widget.imagePath!;
+    }
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -32,7 +46,8 @@ class _PerfilPageState extends State<PerfilPage> {
       case 2:
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => PerfilPage()),
+          MaterialPageRoute(
+              builder: (context) => PerfilPage(imagePath: _imagePath)),
         );
         break;
     }
@@ -50,7 +65,8 @@ class _PerfilPageState extends State<PerfilPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ConfigPage()),
+                MaterialPageRoute(
+                    builder: (context) => ConfigPage(imagePath: _imagePath)),
               );
             },
           ),
@@ -63,7 +79,9 @@ class _PerfilPageState extends State<PerfilPage> {
             SizedBox(height: 24),
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/foto.jpg'),
+              backgroundColor:
+                  Colors.transparent, // Define o fundo como transparente
+              backgroundImage: AssetImage(_imagePath),
             ),
             SizedBox(height: 16),
             Text(
@@ -75,7 +93,7 @@ class _PerfilPageState extends State<PerfilPage> {
             ),
             SizedBox(height: 8),
             Text(
-              'Quantidade de Livros Lidos: 5', // Altere conforme necessário
+              'Quantidade de Livros Lidos: 2',
               style: TextStyle(
                 fontSize: 16,
               ),
@@ -143,23 +161,43 @@ class _PerfilPageState extends State<PerfilPage> {
         itemBuilder: (context, index) {
           String imageName;
           if (index == 0) {
-            imageName = 'contos.jpg'; // Altere para o nome da imagem
+            imageName = 'contos.jpg';
           } else if (index == 1) {
-            imageName = 'dezmil.jpg'; // Altere para o nome da imagem
+            imageName = 'dezmil.jpg';
           } else {
-            imageName = 'tinha.jpg'; // Altere para o nome da imagem
+            imageName = 'tinha.jpg';
           }
 
-          return Container(
-            margin: EdgeInsets.all(8),
-            width: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.grey[150],
-            ),
-            child: Image.asset(
-              'assets/$imageName',
-              fit: BoxFit.cover,
+          return GestureDetector(
+            onTap: () {
+              if (imageName == 'contos.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          LivroPage()), // Navegue para a página LivroPage.dart
+                );
+              } else if (imageName == 'dezmil.jpg' ||
+                  imageName == 'tinha.jpg') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          LivroPage()), // Navegue para a página LivroPage.dart
+                );
+              }
+            },
+            child: Container(
+              margin: EdgeInsets.all(8),
+              width: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[150],
+              ),
+              child: Image.asset(
+                'assets/$imageName',
+                fit: BoxFit.cover,
+              ),
             ),
           );
         },
@@ -171,13 +209,12 @@ class _PerfilPageState extends State<PerfilPage> {
     return Column(
       children: [
         ListTile(
-          title: Text('Haiti'), // Nome do livro
-          leading: Image.asset('assets/haiti.jpg',
-              width: 50, height: 50), // Ajuste de tamanho
+          title: Text('Haiti'),
+          leading: Image.asset('assets/haiti.jpg', width: 50, height: 50),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Avaliação: 4.5/5'), // Avaliação
+              Text('Avaliação: 4.5/5'),
               SizedBox(height: 4),
               Text(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.',
@@ -188,13 +225,12 @@ class _PerfilPageState extends State<PerfilPage> {
         ),
         Divider(), // Linha divisória
         ListTile(
-          title: Text('Eu Sou Malala'), // Nome do livro
-          leading: Image.asset('assets/malala.jpg',
-              width: 50, height: 50), // Ajuste de tamanho
+          title: Text('Eu Sou Malala'),
+          leading: Image.asset('assets/malala.jpg', width: 50, height: 50),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Avaliação: 5/5'), // Avaliação
+              Text('Avaliação: 5/5'),
               SizedBox(height: 4),
               Text(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.',

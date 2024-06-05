@@ -4,12 +4,12 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 
-class LivroDetalhesPage extends StatefulWidget {
+class DezDetalhesPage extends StatefulWidget {
   @override
-  _LivroDetalhesPageState createState() => _LivroDetalhesPageState();
+  _DezDetalhesPageState createState() => _DezDetalhesPageState();
 }
 
-class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
+class _DezDetalhesPageState extends State<DezDetalhesPage> {
   int _selectedIndex = 1; // Índice da página de Biblioteca
 
   void _onItemTapped(int index) {
@@ -63,12 +63,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/malala.jpg',
+                      'assets/dezmil.jpg',
                       height: 200,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Eu Sou Malala',
+                      '10 Mil Voltas ao Mundo',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Malala Yousafzai',
+                      'Severino Rodrigues',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -90,10 +90,10 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star_half, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
                         SizedBox(width: 8),
                         Text(
-                          '4.0 (100 avaliações)',
+                          '4.0 (150 avaliações)',
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -133,7 +133,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação.',
+                    '10 Mil Voltas ao Mundo é uma fascinante jornada que leva os leitores a explorar as maravilhas e mistérios do nosso planeta. Este livro é uma combinação de aventura, cultura e descobertas, perfeito para quem ama viajar e aprender sobre novas culturas.',
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 24),
@@ -145,11 +145,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  _buildReview('José Felipe Silva',
-                      'Um dos melhores livros que já li, leitura envolvente.'),
+                  _buildReview('Carlos Pereira',
+                      'Uma leitura cativante e cheia de aventuras. Recomendo a todos que amam viajar.'),
                   Divider(),
-                  _buildReview('Mariana Santos Silva',
-                      'Gostei muito da história de Malala, ela é uma mulher inspiradora.'),
+                  _buildReview('Ana Souza',
+                      'Adorei conhecer tantas culturas diferentes através deste livro.'),
                 ],
               ),
             ),

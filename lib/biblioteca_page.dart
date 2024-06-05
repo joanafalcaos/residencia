@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'colinaDetalhes_page.dart';
+import 'haitiDetalhes_page.dart';
+import 'tinhaDetalhes_page.dart';
 import 'inicio_page.dart';
 import 'perfil_page.dart';
 import 'livroDetalhes_page.dart';
+import 'megeraDetalhes_page.dart';
+import 'contosDetalhes_page.dart';
+import 'dezDetalhes_page.dart';
+import 'nasciDetalhes_page.dart';
+import 'narizDetalhes_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -119,16 +127,7 @@ class _BibliotecaPageState extends State<BibliotecaPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Biblioteca'),
-        backgroundColor: Color(0xFFFFA500), // Cor laranja
-        actions: [
-          IconButton(
-            icon: Icon(Icons.filter_list),
-            onPressed: () {
-              // Implemente a lógica para filtrar as sessões
-              // Isso pode abrir um menu de seleção ou uma página de filtros
-            },
-          ),
-        ],
+        backgroundColor: Color(0xFFFFA500),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -198,10 +197,50 @@ class _BibliotecaPageState extends State<BibliotecaPage> {
 
     return GestureDetector(
       onTap: () {
-        if (imageName == 'malala.jpg') {
+        if (imageName == 'contos.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ContosDetalhesPage()),
+          );
+        } else if (imageName == 'dezmil.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DezDetalhesPage()),
+          );
+        } else if (imageName == 'megera.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MegeraDetalhesPage()),
+          );
+        } else if (imageName == 'malala.jpg') {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => LivroDetalhesPage()),
+          );
+        } else if (imageName == 'nasci.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NasciDetalhesPage()),
+          );
+        } else if (imageName == 'narizdevidro.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NarizDetalhesPage()),
+          );
+        } else if (imageName == 'tinha.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TinhaDetalhesPage()),
+          );
+        } else if (imageName == 'acolinadossuspiros.jpeg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ColinaDetalhesPage()),
+          );
+        } else if (imageName == 'haiti.jpg') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HaitiDetalhesPage()),
           );
         }
       },
@@ -213,10 +252,10 @@ class _BibliotecaPageState extends State<BibliotecaPage> {
               color: Colors.grey[150],
             ),
             child: Image.asset(
-              'assets/$imageName', // Substitua pelo caminho da imagem do livro
+              'assets/$imageName',
               fit: BoxFit.cover,
-              width: 100, // Defina a largura da imagem
-              height: 150, // Defina a altura da imagem
+              width: 100,
+              height: 150,
             ),
           ),
           SizedBox(

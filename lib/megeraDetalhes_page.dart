@@ -4,12 +4,12 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 
-class LivroDetalhesPage extends StatefulWidget {
+class MegeraDetalhesPage extends StatefulWidget {
   @override
-  _LivroDetalhesPageState createState() => _LivroDetalhesPageState();
+  _MegeraDetalhesPageState createState() => _MegeraDetalhesPageState();
 }
 
-class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
+class _MegeraDetalhesPageState extends State<MegeraDetalhesPage> {
   int _selectedIndex = 1; // Índice da página de Biblioteca
 
   void _onItemTapped(int index) {
@@ -63,12 +63,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/malala.jpg',
+                      'assets/megera.jpg',
                       height: 200,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Eu Sou Malala',
+                      'A Megera Domada',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Malala Yousafzai',
+                      'William Shakespeare',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -93,7 +93,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Icon(Icons.star_half, color: Colors.orange, size: 16),
                         SizedBox(width: 8),
                         Text(
-                          '4.0 (100 avaliações)',
+                          '4.5 (150 avaliações)',
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -112,7 +112,8 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                       ),
                       child: Text(
                         'Iniciar Leitura',
-                        style: TextStyle(color: Colors.orange),
+                        style: TextStyle(
+                            color: Colors.orange), // Alterado para laranja
                       ),
                     ),
                   ],
@@ -133,7 +134,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação.',
+                    'A Megera Domada é uma das comédias mais conhecidas de William Shakespeare. A peça gira em torno da corte do obstinado Petruchio a Catarina, uma mulher difícil de lidar, cuja megera é domada pelo astuto pretendente.',
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 24),
@@ -145,11 +146,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  _buildReview('José Felipe Silva',
-                      'Um dos melhores livros que já li, leitura envolvente.'),
+                  _buildReview('Carlos Alberto',
+                      'Uma obra-prima do teatro, cheia de humor e inteligência.'),
                   Divider(),
-                  _buildReview('Mariana Santos Silva',
-                      'Gostei muito da história de Malala, ela é uma mulher inspiradora.'),
+                  _buildReview('Ana Beatriz Lima',
+                      'Um clássico que nunca envelhece. Shakespeare em sua melhor forma.'),
                 ],
               ),
             ),

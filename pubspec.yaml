@@ -1,4 +1,4 @@
-name: helloworld
+name: pnldon
 description: A new Flutter project.
 
 version: 1.0.0+1
@@ -32,6 +32,12 @@ flutter:
     - assets/logopnld2.png
     - assets/narizdevidro.jpg
     - assets/acolinadossuspiros.jpeg
+    - assets/1.png
+    - assets/2.png
+    - assets/3.png
+    - assets/4.png
+    - assets/5.png
+    - assets/6.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   # fonts:

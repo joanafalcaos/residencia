@@ -4,12 +4,12 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 
-class LivroDetalhesPage extends StatefulWidget {
+class TinhaDetalhesPage extends StatefulWidget {
   @override
-  _LivroDetalhesPageState createState() => _LivroDetalhesPageState();
+  _TinhaDetalhesPageState createState() => _TinhaDetalhesPageState();
 }
 
-class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
+class _TinhaDetalhesPageState extends State<TinhaDetalhesPage> {
   int _selectedIndex = 1; // Índice da página de Biblioteca
 
   void _onItemTapped(int index) {
@@ -63,12 +63,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/malala.jpg',
+                      'assets/tinha.jpg',
                       height: 200,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Eu Sou Malala',
+                      'Tinha um Livro no Meio do Caminho',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Malala Yousafzai',
+                      'Rosana Rios',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -88,12 +88,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                       children: [
                         Icon(Icons.star, color: Colors.orange, size: 16),
                         Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star, color: Colors.orange, size: 16),
-                        Icon(Icons.star_half, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
+                        Icon(Icons.star_border, color: Colors.orange, size: 16),
                         SizedBox(width: 8),
                         Text(
-                          '4.0 (100 avaliações)',
+                          '2.0 (30 avaliações)',
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -133,7 +133,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação.',
+                    'Tinha um Livro no Meio do Caminho é uma obra intrigante que desafia as convenções literárias. O livro narra a história de um protagonista em busca de um livro misterioso, mas a jornada se torna uma reflexão sobre a vida e o significado da literatura.',
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 24),
@@ -145,11 +145,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  _buildReview('José Felipe Silva',
-                      'Um dos melhores livros que já li, leitura envolvente.'),
+                  _buildReview('Maria Oliveira',
+                      'Um livro interessante, mas de leitura complicada.'),
                   Divider(),
-                  _buildReview('Mariana Santos Silva',
-                      'Gostei muito da história de Malala, ela é uma mulher inspiradora.'),
+                  _buildReview(
+                      'José Silva', 'Não consegui me conectar com a história.'),
                 ],
               ),
             ),

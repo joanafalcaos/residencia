@@ -6,14 +6,14 @@ class EsqueciSenhaPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Esqueci a Senha'),
-        backgroundColor: Color(0xffff6e00), // Cor laranja
+        backgroundColor: Color(0xffff6e00),
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xffff6e00), Color(0xFFFFA500)], // branco ao laranja
+            colors: [Color(0xffff6e00), Color(0xFFFFA500)],
           ),
         ),
         child: Center(
@@ -26,7 +26,7 @@ class EsqueciSenhaPage extends StatelessWidget {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Implemente a lógica para enviar o email de recuperação de senha
+                    _enviarEmailRecuperacaoSenha(context);
                   },
                   child: Text("Enviar"),
                 ),
@@ -52,6 +52,28 @@ class EsqueciSenhaPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _enviarEmailRecuperacaoSenha(BuildContext context) {
+    // Após o envio bem-sucedido, exibir a confirmação
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Email Enviado'),
+          content: Text(
+              'Um código para recuperação de senha foi enviado para o seu email.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

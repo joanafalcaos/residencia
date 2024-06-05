@@ -4,12 +4,12 @@ import 'inicio_page.dart';
 import 'biblioteca_page.dart';
 import 'perfil_page.dart';
 
-class LivroDetalhesPage extends StatefulWidget {
+class ContosDetalhesPage extends StatefulWidget {
   @override
-  _LivroDetalhesPageState createState() => _LivroDetalhesPageState();
+  _ContosDetalhesPageState createState() => _ContosDetalhesPageState();
 }
 
-class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
+class _ContosDetalhesPageState extends State<ContosDetalhesPage> {
   int _selectedIndex = 1; // Índice da página de Biblioteca
 
   void _onItemTapped(int index) {
@@ -63,12 +63,12 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/malala.jpg',
+                      'assets/contos.jpg',
                       height: 200,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Eu Sou Malala',
+                      'Contos de Shakespeare',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Malala Yousafzai',
+                      'Charles e Mary Lamb',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
@@ -93,7 +93,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                         Icon(Icons.star_half, color: Colors.orange, size: 16),
                         SizedBox(width: 8),
                         Text(
-                          '4.0 (100 avaliações)',
+                          '4.5 (200 avaliações)',
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -133,7 +133,7 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação.',
+                    'Contos de Shakespeare é uma coleção de adaptações das peças de William Shakespeare, escritas por Charles e Mary Lamb. O livro visa tornar as obras do bardo mais acessíveis ao público jovem, oferecendo uma introdução envolvente às suas histórias e personagens.',
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 24),
@@ -145,11 +145,11 @@ class _LivroDetalhesPageState extends State<LivroDetalhesPage> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  _buildReview('José Felipe Silva',
-                      'Um dos melhores livros que já li, leitura envolvente.'),
+                  _buildReview('João Silva',
+                      'Uma excelente introdução às obras de Shakespeare, perfeita para jovens leitores.'),
                   Divider(),
-                  _buildReview('Mariana Santos Silva',
-                      'Gostei muito da história de Malala, ela é uma mulher inspiradora.'),
+                  _buildReview('Maria Oliveira',
+                      'Adorei a maneira como as histórias foram adaptadas, mantendo a essência dos textos originais.'),
                 ],
               ),
             ),
